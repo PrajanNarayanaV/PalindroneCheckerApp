@@ -1,44 +1,45 @@
 /**
  * =====================================================
- * MAIN CLASS - UseCase4PalindromeCheckerApp
+ * MAIN CLASS - UseCase5PalindromeCheckerApp
  * =====================================================
  *
- * Use Case 4: Character Array Based Palindrome Check
+ * Use Case 5: Stack-Based Palindrome Checker
  *
  * This class demonstrates palindrome validation
- * using a character array and two-pointer technique.
+ * using a Stack (LIFO principle).
  *
  * Key Concepts:
- * - Character Array (char[])
- * - Array Indexing
- * - Two-Pointer Technique
- * - Time Complexity Awareness (O(n))
+ * - Stack Data Structure
+ * - Push Operation
+ * - Pop Operation
+ * - Reversal Logic using Stack
  *
  * @author Developer
- * @version 4.0
+ * @version 5.0
  */
 
-public class PalindroneCheckerApp {
+import java.util.Stack;
+
+public class UseCase5PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String input = "radar";
-        char[] characters = input.toCharArray();
+        String input = "madam";
+        Stack<Character> stack = new Stack<>();
 
-        int start = 0;
-        int end = characters.length - 1;
+
+        for (int i = 0; i < input.length(); i++) {
+            stack.push(input.charAt(i));
+        }
+
         boolean isPalindrome = true;
 
 
-        while (start < end) {
-
-            if (characters[start] != characters[end]) {
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
-
-            start++;
-            end--;
         }
 
 
