@@ -1,52 +1,29 @@
-/**
- * =====================================================
- * MAIN CLASS - UseCase5PalindromeCheckerApp
- * =====================================================
- *
- * Use Case 5: Stack-Based Palindrome Checker
- *
- * This class demonstrates palindrome validation
- * using a Stack (LIFO principle).
- *
- * Key Concepts:
- * - Stack Data Structure
- * - Push Operation
- * - Pop Operation
- * - Reversal Logic using Stack
- *
- * @author Developer
- * @version 5.0
- */
-
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
-public class UseCase5PalindromeCheckerApp {
-
-    public static void main(String[] args) {
-
-        String input = "madam";
-        Stack<Character> stack = new Stack<>();
-
-
-        for (int i = 0; i < input.length(); i++) {
-            stack.push(input.charAt(i));
+public class PalindroneCheckerApp {
+    public static void main(String[] args){
+        String input = "civic";
+        Queue<Character>queue=new LinkedList<>();
+        Stack<Character>stack=new Stack<>();
+        for(char c:input.toCharArray()){
+            queue.add(c);
+            stack.push(c);
         }
+        boolean ispalindrome=true;
 
-        boolean isPalindrome = true;
+        while(!queue.isEmpty()){
+            char fromQueue = queue.remove();
+            char fromStack = stack.pop();
 
-
-        for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) != stack.pop()) {
-                isPalindrome = false;
+            if(fromQueue != fromStack){
+                ispalindrome=false;
                 break;
             }
         }
-
-
-        if (isPalindrome) {
-            System.out.println(input + " is a Palindrome");
-        } else {
-            System.out.println(input + " is NOT a Palindrome");
-        }
+        System.out.printf("Input:"+input);
+        System.out.printf("Is Palindrome?:"+ispalindrome);
     }
+
 }
