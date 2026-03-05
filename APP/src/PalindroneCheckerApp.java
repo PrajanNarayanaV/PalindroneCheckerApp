@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Palindromecheckerapp {
+public class PalindroneCheckerApp {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
